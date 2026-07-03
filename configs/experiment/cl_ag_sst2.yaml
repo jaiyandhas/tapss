@@ -1,0 +1,46 @@
+# ============================================================
+# CL Experiment: AG News (Task A) → SST-2 (Task B)
+# Compares TAPSS vs baselines on catastrophic forgetting
+# ============================================================
+
+defaults:
+  - /default
+  - _self_
+
+experiment:
+  name: "cl_ag_sst2"
+  seed: 42
+  output_dir: "outputs/cl_ag_sst2"
+
+model:
+  name: "distilbert-base-uncased"
+  type: "sequence_classification"
+  max_length: 128
+  cache_dir: ".cache/models"
+
+continual_learning:
+  task_a_dataset: "ag_news"
+  task_b_dataset: "sst2"
+  evaluate_after_task_b: true
+
+training:
+  num_epochs: 3
+  batch_size: 16
+  learning_rate: 2.0e-4
+
+saliency:
+  method: "tapss"
+  weights:
+    gradient: 0.40
+    perturbation: 0.30
+    activation: 0.20
+    layer_contribution: 0.10
+
+protection:
+  policy: "freeze_topk"
+  topk_percent: 20.0
+
+lora:
+  r: 8
+  lora_alpha: 16
+  lora_dropout: 0.05

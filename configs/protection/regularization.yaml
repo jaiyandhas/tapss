@@ -1,0 +1,6 @@
+protection:
+  policy: "regularization"
+  # L2 penalty coefficient scales with parameter importance
+  # loss += lambda * importance * ||theta - theta_0||^2
+  lambda_reg: 1.0
+  topk_percent: 30.0     # Only regularize top 30% most important params

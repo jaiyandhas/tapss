@@ -1,0 +1,25 @@
+saliency:
+  method: "tapss"
+  # Weights for combined TAPSS score (must sum to 1.0)
+  weights:
+    gradient: 0.40
+    perturbation: 0.30
+    activation: 0.20
+    layer_contribution: 0.10
+  # Sub-method configs
+  gradient:
+    num_calibration_batches: 50
+    normalize: true
+  perturbation:
+    perturbation_std: 0.01
+    num_calibration_batches: 20
+    divergence: "kl"
+    normalize: true
+  activation:
+    threshold_percentile: 75
+    num_calibration_batches: 50
+    normalize: true
+  layer_contribution:
+    num_calibration_batches: 50
+    aggregation: "mean"
+    normalize: true

@@ -1,0 +1,14 @@
+lora:
+  r: 8                        # LoRA rank
+  lora_alpha: 16              # Scaling factor: delta_W = (alpha/r) * BA
+  lora_dropout: 0.05
+  bias: "none"
+  task_type: "SEQ_CLS"
+  # Modules to apply LoRA to (model-specific)
+  # null = auto-detect query/value projections
+  target_modules: null
+  # For DistilBERT: ["q_lin", "v_lin"]
+  # For BERT: ["query", "value"]
+  # For RoBERTa: ["query", "value"]
+  modules_to_save: ["classifier"]   # Modules always trained (not LoRA)
+  fan_in_fan_out: false

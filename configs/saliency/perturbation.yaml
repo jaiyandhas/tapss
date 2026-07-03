@@ -1,0 +1,7 @@
+saliency:
+  method: "perturbation"
+  perturbation_std: 0.01     # Gaussian noise std for perturbing parameters
+  num_calibration_batches: 20
+  divergence: "kl"           # "kl" | "l2" | "cosine"
+  block_size: null           # null = perturb per-parameter; int = perturb blocks
+  normalize: true

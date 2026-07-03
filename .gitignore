@@ -1,0 +1,70 @@
+# Python
+__pycache__/
+*.py[cod]
+*$py.class
+*.so
+.Python
+build/
+develop-eggs/
+dist/
+downloads/
+eggs/
+.eggs/
+lib/
+lib64/
+parts/
+sdist/
+var/
+wheels/
+*.egg-info/
+.installed.cfg
+*.egg
+
+# Environments
+.env
+.venv
+env/
+venv/
+ENV/
+
+# Jupyter
+.ipynb_checkpoints/
+*.ipynb_checkpoints
+
+# Outputs and experiments
+outputs/
+experiments/*/results/
+experiments/*/checkpoints/
+*.ckpt
+*.pt
+*.safetensors
+
+# Logs
+*.log
+logs/
+runs/
+tb_logs/
+wandb/
+
+# Data (keep structure, ignore downloaded files)
+datasets/cache/
+datasets/raw/
+.cache/
+
+# IDE
+.idea/
+.vscode/
+*.swp
+*.swo
+.DS_Store
+
+# SQLite
+*.db
+*.sqlite
+
+# Plots (keep structure, ignore generated files)
+outputs/*/plots/
+outputs/*/figures/
+
+# Poetry
+poetry.lock

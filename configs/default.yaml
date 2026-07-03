@@ -1,0 +1,51 @@
+# ============================================================
+# TAPSS Default Configuration
+# All values can be overridden via CLI: key=value
+# ============================================================
+
+defaults:
+  - model: distilbert
+  - dataset: ag_news
+  - saliency: tapss
+  - protection: freeze_topk
+  - lora: default
+  - _self_
+
+experiment:
+  name: "tapss_default"
+  seed: 42
+  output_dir: "outputs/${experiment.name}"
+  log_level: "INFO"
+  use_wandb: false
+  use_tensorboard: true
+
+continual_learning:
+  task_a_dataset: "ag_news"
+  task_b_dataset: "sst2"
+  evaluate_after_task_b: true
+
+training:
+  num_epochs: 3
+  batch_size: 16
+  eval_batch_size: 32
+  learning_rate: 2.0e-4
+  warmup_ratio: 0.06
+  weight_decay: 0.01
+  max_grad_norm: 1.0
+  save_strategy: "epoch"
+  eval_strategy: "epoch"
+  fp16: false
+  bf16: false
+
+calibration:
+  # Used for saliency estimation
+  num_batches: 50
+  batch_size: 8
+
+comparison:
+  baselines:
+    - "vanilla_lora"
+    - "naive_finetuning"
+    - "ewc"
+    - "random_protection"
+    - "tapss"

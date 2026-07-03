@@ -1,0 +1,12 @@
+dataset:
+  name: "sst2"
+  hf_name: "nyu-mll/glue"
+  hf_config: "sst2"
+  text_column: "sentence"
+  label_column: "label"
+  num_labels: 2
+  label_names: ["Negative", "Positive"]
+  train_size: 5000
+  val_size: 800
+  test_size: 800
+  cache_dir: ".cache/datasets"

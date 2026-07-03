@@ -1,0 +1,6 @@
+saliency:
+  method: "gradient"
+  # Gradient magnitude estimation settings
+  num_calibration_batches: 50
+  normalize: true
+  accumulate_steps: true   # average over all calibration batches

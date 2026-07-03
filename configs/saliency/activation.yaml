@@ -1,0 +1,6 @@
+saliency:
+  method: "activation"
+  threshold_percentile: 75    # % of max activation to count as "active"
+  num_calibration_batches: 50
+  normalize: true
+  target_layers: null         # null = all transformer layers

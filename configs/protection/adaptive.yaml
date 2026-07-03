@@ -1,0 +1,9 @@
+protection:
+  policy: "adaptive"
+  # Combines freeze + regularization + soft protection
+  # Adapts based on training progress
+  initial_topk_percent: 10.0        # Strict at start
+  final_topk_percent: 25.0          # Relaxes over training
+  regularization_lambda: 0.5
+  grad_dampening_strength: 0.6
+  warmup_epochs: 1                  # Epochs before adaptive relaxation begins

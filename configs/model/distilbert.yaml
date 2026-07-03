@@ -1,0 +1,7 @@
+model:
+  name: "distilbert-base-uncased"
+  type: "sequence_classification"
+  num_labels: 4          # overridden per dataset
+  max_length: 128
+  cache_dir: ".cache/models"
+  freeze_base: false

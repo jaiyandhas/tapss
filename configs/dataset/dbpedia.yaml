@@ -1,0 +1,26 @@
+dataset:
+  name: "dbpedia"
+  hf_name: "lhoestq/dbpedia_14"
+  hf_config: null
+  text_column: "content"
+  label_column: "label"
+  num_labels: 14
+  label_names:
+    - "Company"
+    - "Educational Institution"
+    - "Artist"
+    - "Athlete"
+    - "Office Holder"
+    - "Mean of Transportation"
+    - "Building"
+    - "Natural Place"
+    - "Village"
+    - "Animal"
+    - "Plant"
+    - "Album"
+    - "Film"
+    - "Written Work"
+  train_size: 5000
+  val_size: 1000
+  test_size: 1000
+  cache_dir: ".cache/datasets"

@@ -1,0 +1,6 @@
+protection:
+  policy: "soft_protection"
+  # Gradient multiplier = 1 - (importance * strength)
+  # High-importance params have gradients dampened
+  strength: 0.8
+  min_grad_ratio: 0.05     # Never reduce grad below 5%

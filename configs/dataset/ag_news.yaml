@@ -1,0 +1,12 @@
+dataset:
+  name: "ag_news"
+  hf_name: "fancyzhx/ag_news"
+  hf_config: null
+  text_column: "text"
+  label_column: "label"
+  num_labels: 4
+  label_names: ["World", "Sports", "Business", "Sci/Tech"]
+  train_size: 5000      # subset for fast experiments
+  val_size: 1000
+  test_size: 1000
+  cache_dir: ".cache/datasets"

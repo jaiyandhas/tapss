@@ -1,0 +1,95 @@
+[tool.poetry]
+name = "tapss"
+version = "0.1.0"
+description = "Task-Adaptive Parameter Saliency Score: Explainability-Inspired Continual Learning for PEFT"
+authors = ["TAPSS Research Team"]
+license = "MIT"
+readme = "README.md"
+packages = [
+    { include = "task_datasets" },
+    { include = "models" },
+    { include = "saliency" },
+    { include = "peft_modules" },
+    { include = "continual_learning" },
+    { include = "evaluation" },
+    { include = "visualization" },
+]
+
+[tool.poetry.dependencies]
+python = "^3.12"
+
+# Core ML
+torch = ">=2.1.0"
+transformers = ">=4.38.0"
+peft = ">=0.9.0"
+datasets = ">=2.17.0"
+accelerate = ">=0.27.0"
+tokenizers = ">=0.15.0"
+
+# Config
+hydra-core = ">=1.3.2"
+omegaconf = ">=2.3.0"
+
+# Data science
+numpy = ">=1.26.0"
+pandas = ">=2.2.0"
+scikit-learn = ">=1.4.0"
+
+# Visualization
+matplotlib = ">=3.8.0"
+seaborn = ">=0.13.0"
+plotly = ">=5.19.0"
+kaleido = ">=0.2.1"  # plotly static export
+
+# Experiment tracking
+tensorboard = ">=2.16.0"
+wandb = { version = ">=0.16.0", optional = true }
+sqlalchemy = ">=2.0.0"
+
+# CLI & utilities
+click = ">=8.1.7"
+rich = ">=13.7.0"
+tqdm = ">=4.66.0"
+python-dotenv = ">=1.0.0"
+
+[tool.poetry.extras]
+wandb = ["wandb"]
+
+[tool.poetry.dev-dependencies]
+pytest = ">=8.0.0"
+pytest-cov = ">=4.1.0"
+black = ">=24.0.0"
+isort = ">=5.13.0"
+mypy = ">=1.8.0"
+jupyter = ">=1.0.0"
+nbformat = ">=5.9.0"
+
+[tool.poetry.scripts]
+tapss-train = "scripts.train:main"
+tapss-eval = "scripts.evaluate:main"
+tapss-saliency = "scripts.compute_saliency:main"
+tapss-run = "scripts.run_experiment:main"
+tapss-compare = "scripts.compare_methods:main"
+tapss-viz = "scripts.visualize:main"
+tapss-report = "scripts.generate_report:main"
+
+[tool.black]
+line-length = 100
+target-version = ["py312"]
+
+[tool.isort]
+profile = "black"
+line_length = 100
+
+[tool.mypy]
+python_version = "3.12"
+strict = false
+ignore_missing_imports = true
+
+[tool.pytest.ini_options]
+testpaths = ["tests"]
+addopts = "-v --tb=short"
+
+[build-system]
+requires = ["poetry-core"]
+build-backend = "poetry.core.masonry.api"

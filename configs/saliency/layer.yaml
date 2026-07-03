@@ -1,0 +1,5 @@
+saliency:
+  method: "layer_contribution"
+  num_calibration_batches: 50
+  normalize: true
+  aggregation: "mean"    # "mean" | "max" | "sum"
