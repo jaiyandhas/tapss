@@ -8,7 +8,7 @@
 
 ## What this is
 
-I built this during my gap year to dig into a specific question that kept nagging at me while reading the EWC paper: the Fisher Information Matrix is elegant, but it measures *optimization sensitivity*, not *functional importance*. A parameter can have a huge Fisher value just because it sits near a sharp loss landscape — that doesn't necessarily mean the model *relies* on it for its predictions.
+I built this to dig into a specific question that kept nagging at me while reading the EWC paper: the Fisher Information Matrix is elegant, but it measures *optimization sensitivity*, not *functional importance*. A parameter can have a huge Fisher value just because it sits near a sharp loss landscape — that doesn't necessarily mean the model *relies* on it for its predictions.
 
 TAPSS is my attempt to take the explainability angle instead. The idea is simple:
 
