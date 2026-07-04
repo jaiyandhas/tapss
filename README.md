@@ -35,6 +35,45 @@ Default weights are `0.40 : 0.30 : 0.20 : 0.10`. These are a starting point, not
 
 ---
 
+## Sample outputs
+
+These are from an actual run (DistilBERT, AG News → SST-2, pilot scale).
+
+**Parameter importance scores — score distribution across all 104 parameters**
+
+![importance histogram](assets/importance_histogram.png)
+
+Right-skewed as expected — most parameters score low, a small set scores high. If this were flat, something would be wrong with the estimator.
+
+**Layer-wise importance heatmap**
+
+![layer heatmap](assets/layer_heatmap.png)
+
+Early FFN layers (0–2) rank consistently higher than later ones. Value projections score lower than query/key — attention routing appears more critical than attention reading, at least by these signals.
+
+**Protection map — which parameters get frozen**
+
+![protection map](assets/protection_map.png)
+
+Top 20% by TAPSS score. The pattern is structured, not random — early FFN projections and the classifier head dominate.
+
+**Method comparison — Task A and Task B accuracy across all baselines**
+
+![task accuracy comparison](assets/task_accuracy.png)
+
+**Forgetting by method**
+
+![forgetting](assets/forgetting.png)
+
+**Multi-metric radar chart**
+
+![radar](assets/radar.png)
+
+> **Note:** these results are from a pilot-scale run (32 training samples, 1 epoch) used to verify the pipeline end-to-end. Forgetting is zero across all methods at this scale because the model doesn't converge enough on Task B to meaningfully overwrite Task A. Full-scale experiments are the next step.
+
+---
+
+
 ## Project layout
 
 ```
